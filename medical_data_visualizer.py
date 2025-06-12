@@ -3,13 +3,16 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 1
-df = None
+# 1 Import the data
+df = pd.read_csv('medical_examination.csv')
 
-# 2
-df['overweight'] = None
+# 2 determine if a person is overweight
+BMI = df['weight'] / (df['height'] / 100)**2
+df['overweight'] = (BMI > 25).astype(int)
 
-# 3
+# 3 Normalize data by making 0 always good and 1 always bad
+df['cholesterol'] = (df['cholesterol'] > 1).astype(int)
+df['gluc'] = (df['gluc'] > 1).astype(int)
 
 
 # 4
